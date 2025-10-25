@@ -1,0 +1,17 @@
+{
+  "totalResources": 47,
+  "avgSavingsPerStudent": 2847,
+  "topCategories": 5,
+  "timeToFirstWin": "5 minutes",
+  "savingsEstimator": {
+    "baseValue": 1200,
+    "classYearMultipliers": {
+      "freshman": 0.8,
+      "sophomore": 1.0,
+      "junior": 1.2,
+      "senior": 1.4
+    },
+    "housingBonus": 500,
+    "insuranceBonus": 800
+  }
+}

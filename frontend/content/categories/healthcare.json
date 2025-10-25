@@ -1,0 +1,51 @@
+{
+  "title": "Healthcare",
+  "description": "Take advantage of UCF health services and save on medical care.",
+  "subcategories": [
+    {
+      "name": "Records (Health Information Management)",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "location": " - ",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    },
+    {
+      "name": "Primary Care Services",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "location": " - ",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    },
+    {
+      "name": "Mental Health Counseling",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "location": " - ",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    },
+    {
+      "name": "Pharmacy Services",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "location": " - ",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    },
+    {
+      "name": "Health Insurance",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "location": " - ",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    }
+  ]
+}

@@ -57,14 +57,8 @@ class RAG_Agent():
             ),
         )
 
-        for chunk in self.client.models.generate_content_stream(
-            model = model,
-            contents = contents,
-            config = generate_content_config,
-            ):
-            if not chunk.candidates or not chunk.candidates[0].content or not chunk.candidates[0].content.parts:
-                continue
-            print(chunk.text, end="")
+        response = self.client.models.generate_content_stream(model = model,contents = contents,config = generate_content_config)
+        return response.text
 
 if __name__ == "__main__":
     agent = RAG_Agent()

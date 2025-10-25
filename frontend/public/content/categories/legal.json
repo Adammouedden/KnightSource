@@ -1,0 +1,30 @@
+{
+  "title": "Legal",
+  "description": "Free legal services and assistance for UCF students.",
+  "subcategories": [
+    {
+      "name": "Student Legal Services",
+      "description_md": "**PASTE: Subcategory specific description**\n\nProvide detailed information about this service here.",
+      "phone": "PASTE: Phone number",
+      "financial_value_md": "**PASTE: Financial value**\n\nExample: Save $250-$500 per consultation",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**\n\n- Exception 1\n- Exception 2\n- Exception 3",
+      "steps_md": "**PASTE: Steps (numbered)**\n\n1. First step\n2. Second step\n3. Third step"
+    },
+    {
+      "name": "Contract Review",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    },
+    {
+      "name": "Landlord-Tenant Issues",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    }
+  ]
+}
