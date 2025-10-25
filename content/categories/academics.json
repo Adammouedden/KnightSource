@@ -1,0 +1,38 @@
+{
+  "title": "Academics",
+  "description": "Academic support services, tutoring, and educational resources.",
+  "subcategories": [
+    {
+      "name": "Free Tutoring Services",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    },
+    {
+      "name": "Writing Center",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    },
+    {
+      "name": "Research Resources",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    },
+    {
+      "name": "Academic Advising",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    }
+  ]
+}
