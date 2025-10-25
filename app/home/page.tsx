@@ -42,7 +42,7 @@ const categories = [
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-x-hidden px-4">
       <Header />
 
       <main className="flex-1">

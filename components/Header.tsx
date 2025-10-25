@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { Moon, Sun, Menu } from 'lucide-react';
+import { UserCircle2 } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 import {
@@ -68,46 +68,16 @@ export function Header() {
           {mounted && (
             <Button
               variant="ghost"
-              size="icon"
+              size="sm"
+              className="group relative overflow-hidden bg-gradient-to-r from-amber-500/10 to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 transition-all duration-300 px-6"
               onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
             >
-              {theme === 'dark' ? (
-                <Sun className="h-5 w-5" />
-              ) : (
-                <Moon className="h-5 w-5" />
-              )}
+              <span className="flex items-center gap-2">
+                <UserCircle2 className="w-4 h-4 text-amber-600" />
+                <span className="font-medium">Sign In</span>
+              </span>
             </Button>
           )}
-
-          <Sheet>
-            <SheetTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
-                <Menu className="h-5 w-5" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right">
-              <nav className="flex flex-col gap-4 mt-8">
-                <Link
-                  href="/home"
-                  className="text-lg font-medium transition-colors hover:text-amber-600"
-                >
-                  Home
-                </Link>
-                <div className="border-t pt-4">
-                  <p className="text-sm font-semibold text-muted-foreground mb-2">Categories</p>
-                  {categories.map((cat) => (
-                    <Link
-                      key={cat.href}
-                      href={cat.href}
-                      className="block py-2 text-base transition-colors hover:text-amber-600"
-                    >
-                      {cat.name}
-                    </Link>
-                  ))}
-                </div>
-              </nav>
-            </SheetContent>
-          </Sheet>
         </div>
       </div>
     </header>

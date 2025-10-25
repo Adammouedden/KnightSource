@@ -1,152 +1,195 @@
-"use client";
-
 import { useState, useRef, useEffect } from 'react';
-import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
-import { Input } from '@/components/ui/input';
-import { ScrollArea } from '@/components/ui/scroll-area';
-import { MessageCircle, Send, X } from 'lucide-react';
-import { useChatContext } from './ChatProvider';
-import { motion, AnimatePresence } from 'framer-motion';
+import { MessageCircle, X, Send, Sparkles } from 'lucide-react';
+import contentData from '../public/content/chatcontents.json';
+
+interface Message {
+  id: string;
+  text: string;
+  sender: 'user' | 'bot';
+  timestamp: Date;
+}
 
 export function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
-  const { messages, sendMessage, isLoading } = useChatContext();
-  const scrollRef = useRef<HTMLDivElement>(null);
+  const [isTyping, setIsTyping] = useState(false);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  const quickPrompts = contentData.chat_quick_prompts;
 
   useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    if (isOpen && messages.length === 0) {
+      setMessages([
+        {
+          id: '1',
+          text: "Hi! I'm here to help you discover UCF resources. Ask me about funding, services, or opportunities available to you.",
+          sender: 'bot',
+          timestamp: new Date(),
+        },
+      ]);
     }
+  }, [isOpen, messages.length]);
+
+  useEffect(() => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSend = async () => {
-    if (!input.trim() || isLoading) return;
+  const handleSend = async (text: string = input) => {
+    if (!text.trim()) return;
 
-    const messageContent = input;
+    const userMessage: Message = {
+      id: Date.now().toString(),
+      text: text.trim(),
+      sender: 'user',
+      timestamp: new Date(),
+    };
+
+    setMessages((prev) => [...prev, userMessage]);
     setInput('');
-    await sendMessage(messageContent);
+    setIsTyping(true);
+
+    setTimeout(() => {
+      const response = generateResponse(text.toLowerCase());
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: response,
+        sender: 'bot',
+        timestamp: new Date(),
+      };
+
+      setMessages((prev) => [...prev, botMessage]);
+      setIsTyping(false);
+    }, 1000);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      handleSend();
+  const generateResponse = (query: string): string => {
+    if (query.includes('funding') || query.includes('money') || query.includes('qualify')) {
+      return "Based on your query, here are some funding opportunities:\n\n• Conference Travel: Up to $1,500 for RSOs + $150 per presenter (max $3,000)\n• Individual Presenters: Up to $400\n\nWould you like more details about any of these?";
     }
+
+    if (query.includes('deadline') || query.includes('when')) {
+      return "Deadlines vary by resource. For Conference Travel funding, applications are typically reviewed on a rolling basis. I recommend checking the specific resource page for exact deadlines.";
+    }
+
+    if (query.includes('legal') || query.includes('healthcare')) {
+      return "I can help you with both legal and healthcare resources:\n\n• Legal: Various legal services and support available through UCF\n• Healthcare: Student health services and wellness programs\n\nWhich would you like to explore first?";
+    }
+
+    if (query.includes('rso') || query.includes('organization')) {
+      return "RSOs have access to special funding and resources! Key opportunities include:\n\n• Conference Travel: $1,500 base + $150 per presenter\n• Various academic and recreational programs\n\nWhat type of RSO activity are you planning?";
+    }
+
+    if (query.includes('research') || query.includes('presentation') || query.includes('conference')) {
+      return "Great! For conference presentations:\n\n• RSOs: $1,500 + $150 per presenter (max $3,000)\n• Individual students: up to $400\n\nThis covers research presentations, art shows, posters, and performances. Would you like to start an application?";
+    }
+
+    return "I'd be happy to help! You can ask me about:\n\n• Funding opportunities\n• Legal and healthcare resources\n• Conference travel support\n• Academic programs\n• Recreational activities\n\nWhat would you like to know more about?";
   };
 
   return (
     <>
-      <motion.div
-        initial={{ scale: 0, opacity: 0 }}
-        animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.5 }}
-        className="fixed bottom-6 right-6 z-50"
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="fixed bottom-4 right-6 z-50 w-8 h-8 bg-blue-500 hover:bg-citrine text-onyx rounded-full shadow-lg hover:shadow-citrine flex items-center justify-center transition-all transform hover:scale-110"
+        aria-label="Open chat"
       >
-        <Button
-          onClick={() => setIsOpen(true)}
-          size="lg"
-          className="h-14 w-14 rounded-full bg-amber-600 hover:bg-amber-700 shadow-lg hover:shadow-xl transition-all"
-        >
-          <MessageCircle className="h-6 w-6" />
-        </Button>
-      </motion.div>
+        {isOpen ? <X className="w-5 h-5" /> : <MessageCircle className="w-5 h-5" />}
+      </button>
 
-      <Dialog open={isOpen} onOpenChange={setIsOpen}>
-        <DialogContent className="sm:max-w-[500px] h-[600px] flex flex-col p-0">
-          <DialogHeader className="p-6 pb-4 border-b">
-            <div className="flex items-center justify-between">
-              <DialogTitle className="text-xl">KnightSource Assistant</DialogTitle>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsOpen(false)}
-                className="h-8 w-8"
-              >
-                <X className="h-4 w-4" />
-              </Button>
+      {isOpen && (
+        <div className="fixed bottom-14 right-6 z-50" style={{ transform: 'scale(0.80)', transformOrigin: 'bottom right' }}>
+          <div className="w-80 max-w-[calc(100vw-3rem)] max-y-120 bg-black border border-knight-gray rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
+            <div className="bg-onyx p-4 border-b border-knight-gray">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-citrine rounded-full flex items-center justify-center">
+                  <Sparkles className="w-5 h-5 text-onyx" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-off-white">KnightSource Assistant</h3>
+                  <p className="text-knight-gray text-xs">Here to help you find resources</p>
+                </div>
+              </div>
             </div>
-            <p className="text-sm text-muted-foreground mt-2">
-              Ask me anything about UCF resources and benefits!
-            </p>
-          </DialogHeader>
 
-          <ScrollArea className="flex-1 p-6" ref={scrollRef}>
-            <div className="space-y-4">
-              {messages.length === 0 && (
-                <div className="text-center text-muted-foreground py-8">
-                  <MessageCircle className="h-12 w-12 mx-auto mb-4 opacity-50" />
-                  <p className="text-sm">Start a conversation to learn about UCF resources!</p>
+            <div className="h-[530px] overflow-y-auto p-4 space-y-4 bg-graphite">
+              {messages.map((message) => (
+                <div
+                  key={message.id}
+                  className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+                >
+                  <div
+                    className={`max-w-[80%] p-3 rounded-2xl ${
+                      message.sender === 'user'
+                        ? 'bg-citrine text-onyx rounded-br-sm'
+                        : 'bg-knight-gray/20 text-off-white rounded-bl-sm'
+                    }`}
+                  >
+                    <p className="text-sm whitespace-pre-line leading-relaxed">{message.text}</p>
+                  </div>
+                </div>
+              ))}
+              {messages.length <= 1 && (
+              <div className="p-4 border-t border-knight-gray bg-onyx space-y-2">
+                <p className="text-knight-gray text-xs mb-2">Quick prompts:</p>
+                {quickPrompts.map((prompt, index) => (
+                  <button
+                    key={index}
+                    onClick={() => handleSend(prompt)}
+                    className="w-full text-left px-3 py-2 bg-graphite hover:bg-graphite text-knight-gray hover:text-off-white text-sm rounded-lg transition-colors"
+                  >
+                    {prompt}
+                  </button>
+                ))}
+              </div>
+            )}
+
+              {isTyping && (
+                <div className="flex justify-start">
+                  <div className="bg-knight-gray/20 text-off-white p-3 rounded-2xl rounded-bl-sm">
+                    <div className="flex space-x-2">
+                      <div className="w-2 h-2 bg-knight-gray rounded-full animate-bounce" />
+                      <div className="w-2 h-2 bg-knight-gray rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
+                      <div className="w-2 h-2 bg-knight-gray rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                    </div>
+                  </div>
                 </div>
               )}
 
-              <AnimatePresence>
-                {messages.map((message) => (
-                  <motion.div
-                    key={message.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
-                  >
-                    <div
-                      className={`max-w-[80%] rounded-2xl px-4 py-3 ${
-                        message.role === 'user'
-                          ? 'bg-amber-600 text-white'
-                          : 'bg-muted text-foreground'
-                      }`}
-                    >
-                      <p className="text-sm whitespace-pre-wrap">{message.content}</p>
-                      <p className={`text-xs mt-1 ${
-                        message.role === 'user' ? 'text-amber-100' : 'text-muted-foreground'
-                      }`}>
-                        {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                      </p>
-                    </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-
-              {isLoading && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="flex justify-start"
-                >
-                  <div className="bg-muted rounded-2xl px-4 py-3">
-                    <div className="flex space-x-2">
-                      <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                      <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
-                    </div>
-                  </div>
-                </motion.div>
-              )}
+              <div ref={messagesEndRef} />
             </div>
-          </ScrollArea>
 
-          <div className="p-4 border-t">
-            <div className="flex gap-2">
-              <Input
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                onKeyPress={handleKeyPress}
-                placeholder="Ask about resources..."
-                disabled={isLoading}
-                className="flex-1"
-              />
-              <Button
-                onClick={handleSend}
-                disabled={!input.trim() || isLoading}
-                className="bg-amber-600 hover:bg-amber-700"
+            <div className="p-4 border-t border-knight-gray/20 bg-onyx">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  handleSend();
+                }}
+                className="flex items-center space-x-2"
               >
-                <Send className="h-4 w-4" />
-              </Button>
+                <input
+                  type="text"
+                  value={input}
+                  onChange={(e) => setInput(e.target.value)}
+                  placeholder="Ask about resources..."
+                  className="flex-1 bg-graphite/50 text-off-white placeholder-knight-gray px-4 py-2 rounded-xl outline-none focus:ring-2 focus:ring-citrine/50"
+                />
+                <button
+                  type="submit"
+                  disabled={!input.trim()}
+                  className="p-2 bg-citrine hover:bg-citrine/90 text-onyx rounded-xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  aria-label="Send message"
+                >
+                  <Send className="w-5 h-5" />
+                </button>
+              </form>
+              <p className="text-knight-gray text-xs mt-2 text-center">
+                AI-powered. Responses may not be complete.
+              </p>
             </div>
           </div>
-        </DialogContent>
-      </Dialog>
+        </div>
+      )}
     </>
   );
 }

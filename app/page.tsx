@@ -9,7 +9,6 @@ import { Footer } from '@/components/Footer';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
-import { Test } from '@/components/Test';
 
 export default function LandingPage() {
   const [stats, setStats] = useState<any>(null);
@@ -22,7 +21,6 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Test />
       <Header />
 
       <main className="flex-1">
@@ -181,41 +179,6 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section className="py-20 bg-background">
-          <div className="container">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center mb-12"
-            >
-              <h2 className="text-4xl font-bold mb-4">Trusted On Campus</h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                Built by students, for students
-              </p>
-              <div className="flex flex-wrap justify-center gap-8 items-center opacity-60">
-                <div className="px-6 py-3 bg-muted rounded-lg font-semibold">UCF</div>
-                <div className="px-6 py-3 bg-muted rounded-lg font-semibold">Student Resources</div>
-                <div className="px-6 py-3 bg-muted rounded-lg font-semibold">Campus Life</div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-2xl mx-auto text-center mt-16"
-            >
-              <h3 className="text-3xl font-bold mb-6">Ready to unlock your benefits?</h3>
-              <Button asChild size="lg" className="bg-amber-600 hover:bg-amber-700 text-lg px-12">
-                <Link href="/home">
-                  Get Started
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </motion.div>
-          </div>
-        </section>
          <section className="py-20 bg-background">
           <div className="container">
             <motion.div
