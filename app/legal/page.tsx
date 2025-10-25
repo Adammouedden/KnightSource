@@ -3,6 +3,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Chatbot } from '@/components/Chatbot';
 import { AccordionSection } from '@/components/AccordionSection';
+import { useEffect, useState } from 'react';
 import data from '@/content/categories/legal.json'; // tsconfig: "resolveJsonModule": true
 
 export default function LegalPage() {
