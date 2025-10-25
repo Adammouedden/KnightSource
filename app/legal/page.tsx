@@ -7,7 +7,7 @@ import data from '@/content/categories/legal.json'; // tsconfig: "resolveJsonMod
 
 export default function LegalPage() {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col px-4">
       <Header />
       <main className="flex-1">
         <section className="py-12 md:py-20">

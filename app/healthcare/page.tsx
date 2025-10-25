@@ -18,7 +18,7 @@ export default function HealthcarePage() {
 
   if (!data) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="min-h-screen flex flex-col px-4">
         <Header />
         <main className="flex-1 flex items-center justify-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600" />
