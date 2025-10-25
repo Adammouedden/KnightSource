@@ -1,7 +1,7 @@
 "use client";
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
-import { Phone } from 'lucide-react';
+import { Phone, MapPin} from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import { Subcategory } from '@/lib/content-loader';
 
@@ -49,20 +49,35 @@ export function AccordionSection({ subcategories }: AccordionSectionProps) {
                 </div>
               )}
 
-              {sub.phone && (
-                <div>
-                  <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-2">
-                    Contact
-                  </h4>
+              {(sub.phone || sub.location) && (
+              <div>
+                <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wide mb-2">
+                  Contact / Location
+                </h4>
+
+                {/* Phone */}
+                {sub.phone && (
                   <a
                     href={`tel:${sub.phone.replace(/[^0-9+]/g, '')}`}
-                    className="flex items-center gap-2 text-amber-600 hover:text-amber-700 font-medium"
+                    className="flex items-center gap-2 text-amber-600 hover:text-amber-700 font-medium mb-1"
                   >
                     <Phone className="w-4 h-4" />
                     {sub.phone}
                   </a>
-                </div>
-              )}
+                )}
+
+                {/* Location */}
+                {sub.location && (
+                  <a
+                    href="#"
+                    className="flex items-center gap-2 text-amber-600 hover:text-amber-700 font-medium"
+                  >
+                    <MapPin className="w-4 h-4" />
+                    {sub.location}
+                  </a>
+                )}
+              </div>
+            )}
 
               {sub.financial_value_md && (
                 <div>

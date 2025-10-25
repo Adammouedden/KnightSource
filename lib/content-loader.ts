@@ -5,6 +5,7 @@ export interface Subcategory {
   name: string;
   description_md: string;
   phone: string;
+  location: String;
   financial_value_md: string;
   exceptions_md: string;
   steps_md: string;
