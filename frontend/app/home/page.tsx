@@ -5,7 +5,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Chatbot } from '@/components/Chatbot';
 import { motion } from 'framer-motion';
-import { Scale, GraduationCap, Heart, Plane, Dumbbell } from 'lucide-react';
+import { Scale, GraduationCap, Heart, Plane, Dumbbell, Users} from 'lucide-react';
 
 const categories = [
   {
@@ -37,7 +37,12 @@ const categories = [
     description: 'Fitness, wellness, and recreational facilities included with your tuition.',
     href: '/recreation',
     icon: Dumbbell,
-  },
+  },{
+    title: 'RSO Category',
+    description: 'Resources specific to student organizations, like funding, registration and more. ',
+    href: '/rso',
+    icon: Users,
+  }
 ];
 
 export default function HomePage() {

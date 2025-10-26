@@ -1,0 +1,33 @@
+{
+  "title": "RSO Category",
+  "description": "Resources and processes for Registered Student Organizations (funding, registration, travel, and operations).",
+  "subcategories": [
+    {
+      "name": "CRT Funding (Conference, Registration & Travel)",
+      "description_md": "Funding to help **RSO members** attend academic/professional events. Covers **registration**, **lodging**, and **main transportation** (flight, bus, etc.).",
+      "phone": "407-823-xxxx",
+      "location": "Student Government Finance Office",
+      "financial_value_md": "* Registration fees covered in part or full.\n* Lodging near event; transportation costs may be subsidized.\n* Potential savings per traveler: **$200–$800+** depending on distance and duration.",
+      "exceptions_md": "* Must be a **currently registered RSO in good standing**.\n* **No retroactive** reimbursements.\n* Travel must be approved **before** the event and follow all SG Finance policies.",
+      "steps_md": "1. Confirm your RSO is active and officers are finance-trained.\n2. Submit a **CRT Request** with quotes/itinerary before the deadline.\n3. Await allocation/approval.\n4. Travel and **keep all receipts**.\n5. Complete **post-travel reimbursement** steps by the stated deadline."
+    },
+    {
+      "name": "RSO Registration & Renewal",
+      "description_md": "Register a new RSO or **renew annually** to remain active. Manage officers, advisor, constitution, and **KnightConnect** presence.",
+      "phone": "407-823-xxxx",
+      "location": "Office of Student Involvement (Student Union)",
+      "financial_value_md": "* Access to **funding**, **room reservations**, **marketing**, and **advisor support**.\n* Avoids lapsing and losing budget eligibility.",
+      "exceptions_md": "* Must meet **minimum membership/officer** requirements.\n* Advisor approval required.\n* Constitutional standards must be met.",
+      "steps_md": "1. Review RSO requirements and constitution template.\n2. Recruit required officers and secure an advisor.\n3. Submit application via **KnightConnect**.\n4. Complete officer trainings.\n5. Renew annually before the deadline."
+    },
+    {
+      "name": "Event/Operations Support",
+      "description_md": "Help with **space reservations**, **contracts**, **risk management**, and purchasing for RSO events.",
+      "phone": "407-823-xxxx",
+      "location": "Student Union",
+      "financial_value_md": "* Guidance that avoids **contract/purchasing mistakes** and fees.\n* Can reduce venue and vendor costs through approved processes.",
+      "exceptions_md": "* Some events require **additional approvals** (risk, security, minors, travel, food).",
+      "steps_md": "1. Draft event plan and budget.\n2. Request space early; follow **risk management** guidance.\n3. Submit any **contract/purchasing** forms.\n4. Execute event; keep documentation for reconciliation."
+    }
+  ]
+}
