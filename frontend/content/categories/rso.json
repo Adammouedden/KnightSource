@@ -9,6 +9,7 @@
       "financial_value_md": "* Registration fees covered in part or full.\n* Lodging near event; transportation costs may be subsidized.\n* Potential savings: **up to $4,500** per RSO per fiscal year, depending on participants and event type.",
       "exceptions_md": "* Must be a **currently registered RSO in good standing**.\n* **No retroactive** reimbursements.\n* Travel must be approved **before** the event and follow all SG Finance policies.",
       "steps_md": "1. Confirm your RSO is active and officers are [financially-trained](https://webcourses.ucf.edu/enroll/B6J6RP).\n2. Submit an **[allocation](https://knightconnect.campuslabs.com/engage/submitter/form/start/677182) or [fiscal bill request](https://knightconnect.campuslabs.com/engage/submitter/form/start/686400)** with quotes/itinerary before the deadline.\n3. Await allocation/approval.\n4. Travel and **keep all receipts**.\n5. Complete **post-travel reimbursement** steps by the stated deadline."
+      , "buttonDescription": "Learn More"
     },
     {
       "name": "FAO Funding (Financial Allocations for Organizations)",
@@ -17,6 +18,7 @@
       "financial_value_md": "* Allocations can cover approved **event, project, or promotional item costs**.\n* **Processing time:** typically **3–4 weeks** from submission to approval.\n* **Maximum savings:** up to **$3,700** per RSO per fiscal year. Of those, Promotional Items can only be funded up to $800.00 per allocation.",
       "exceptions_md": "* **No funding** for events or projects **requiring payment before July 14, 2025**.\n* **No requests** for events **ending after May 11, 2026**.\n* **Submitting a request does not guarantee funding** — approval depends on committee review and budget availability.\n* The FAO Committee **cannot fund non-accessory apparel** (e.g., shirts, jackets).\n* All requests must be submitted **at least 20 business days before payment is needed**.",
       "steps_md": "1. **Complete the [2025–2026 Financial Training](https://webcourses.ucf.edu/enroll/B6J6RP)** — at least **2 authorized officers** must be trained before applying.\n2. Prepare your **[KnightConnect FAO Allocation Request](https://knightconnect.campuslabs.com/engage/submitter/form/start/681084) or [fiscal bill request](https://knightconnect.campuslabs.com/engage/submitter/form/start/686401)** with all required supporting documentation:\n   * **Event Requests:** Room confirmation, itemized quotes (including fees), signed speaker honorarium (if applicable), and UCF Catering quote (if food involved).\n   * **Project Requests:** Itemized quotes and confirmation of participation in presentation/showcase.\n   * **Promotional Item Requests:** Itemized quotes and artwork designs following **Spending Policy** guidelines.\n3. **Submit your form by Monday 3:00 PM** to be reviewed at that week’s FAO Committee meeting (**Wednesdays at 3:00 PM**, SG Conference Room).\n4. Have a **financially trained RSO officer attend** the committee meeting on time, prepared with quotes and to answer questions.\n5. Upon FAO approval, the allocation must be **read into Senate minutes** before payment — expect a **3–4 week total process**.\n6. Remember: **Do not include tax** if purchasing from a **Florida-based vendor** (UCF is tax-exempt)."
+    , "buttonDescription": "Learn More"
     },
     {
       "name": "RSO Registration & Renewal",
@@ -25,6 +27,7 @@
       "financial_value_md": "* Access to **funding**, **room reservations**, **marketing**, and **advisor support**.\n* Avoids lapsing and losing budget eligibility.",
       "exceptions_md": "* Must meet **minimum membership/officer** requirements.\n* Advisor approval required.\n* Constitutional standards must be met.",
       "steps_md": "1. Review RSO requirements and constitution template.\n2. Recruit required officers and secure an advisor.\n3. Submit application via **KnightConnect**.\n4. Complete officer trainings.\n5. Renew annually before the deadline."
+        , "buttonDescription": "Learn More"
     }
   ]
 }
