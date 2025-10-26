@@ -1,35 +1,13 @@
-"use client";
-
+// app/recreation/page.tsx
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Chatbot } from '@/components/Chatbot';
 import { AccordionSection } from '@/components/AccordionSection';
-import { useEffect, useState } from 'react';
-import { CategoryData } from '@/lib/content-loader';
+import data from '@/content/categories/recreation.json'; // direct import (tsconfig: "resolveJsonModule": true)
 
 export default function RecreationPage() {
-  const [data, setData] = useState<CategoryData | null>(null);
-
-  useEffect(() => {
-    fetch('/content/categories/recreation.json')
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
-
-  if (!data) {
-    return (
-      <div className="min-h-screen flex flex-col px-4">
-        <Header />
-        <main className="flex-1 flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600" />
-        </main>
-        <Footer />
-      </div>
-    );
-  }
-
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col px-4">
       <Header />
 
       <main className="flex-1">
@@ -50,7 +28,8 @@ export default function RecreationPage() {
                   Dev: Content File Location
                 </summary>
                 <p className="mt-2 text-muted-foreground">
-                  Edit: <code className="bg-background px-2 py-1 rounded">
+                  Edit:{' '}
+                  <code className="bg-background px-2 py-1 rounded">
                     /content/categories/recreation.json
                   </code>
                 </p>
