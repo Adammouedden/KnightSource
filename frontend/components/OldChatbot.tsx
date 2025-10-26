@@ -4,11 +4,22 @@ import { useState, useRef, useEffect } from 'react';
 import { MessageCircle, X, Send, Sparkles } from 'lucide-react';
 import contentData from '../public/content/chatcontents.json';
 
-interface Message {
+type Message = {
   id: string;
   text: string;
   sender: 'user' | 'bot';
   timestamp: Date;
+};
+
+// Utility function for fallback responses
+function getFallbackResponse(query: string): string {
+  if (query.includes('funding') || query.includes('money')) {
+    return "Based on your query, here are some funding opportunities:\n\n• Conference Travel: Up to $1,500 for RSOs + $150 per presenter (max $3,000)\n• Individual Presenters: Up to $400\n\nWould you like more details about any of these?";
+  }
+  if (query.includes('deadline')) {
+    return "Deadlines vary by resource. For Conference Travel funding, applications are typically reviewed on a rolling basis.";
+  }
+  return "I'd be happy to help! You can ask me about:\n\n• Funding opportunities\n• Legal and healthcare resources\n• Conference travel support\n• Academic programs\n• Recreational activities";
 }
 
 export function Chatbot() {
@@ -37,87 +48,60 @@ export function Chatbot() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  const handleSend = async (text: string = input) => {
-    if (!text.trim()) return;
+  // Local fallback responses
+  const handleSend = async (userInput: string = input) => {
+    if (!userInput.trim()) return;
 
     const userMessage: Message = {
       id: Date.now().toString(),
-      text: text.trim(),
+      text: userInput.trim(),
       sender: 'user',
       timestamp: new Date(),
     };
 
-    setMessages((prev) => [...prev, userMessage]);
+    setMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsTyping(true);
 
-    // Call RAG service at http://0.0.0.0:8000/RAG?prompt=
     try {
-      //const endpoint = `http://0.0.0.0:8000/RAG?prompt=${encodeURIComponent(text)}`;
-      const endpoint = `http://localhost:8000/RAG?prompt=${encodeURIComponent(text)}`;
-      const res = await fetch(endpoint, {
-        method: 'GET',
+      const endpoint = `http://localhost:8000/RAG?prompt=lawyer`;
+      const response = await fetch(endpoint, {
+        method: 'POST',
         headers: {
-          'Accept': 'text/plain',
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({
+          query: userInput.trim()
+        }),
       });
 
-      console.error("res", res);
-
-      let botText: string;
-      if (res.ok) {
-        // assume the service returns plain text
-        botText = await res.text();
+      let botResponse: string;
+      
+      if (response.ok) {
+        const data = await response.json();
+        botResponse = data.response;
       } else {
-        // fallback to local generator if remote fails
-        console.error('RAG request failed', res.status, await res.text());
-        botText = generateResponse(text.toLowerCase());
+        console.error('API call failed:', response.status);
+        botResponse = getFallbackResponse(userInput.toLowerCase());
       }
 
-      const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        text: botText,
+      setMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        text: botResponse,
         sender: 'bot',
         timestamp: new Date(),
-      };
-
-      setMessages((prev) => [...prev, botMessage]);
+      }]);
     } catch (err) {
-      console.error('RAG request error', err);
-      const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        text: generateResponse(text.toLowerCase()),
+      console.error('Failed to fetch response:', err);
+      setMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        text: getFallbackResponse(userInput.toLowerCase()),
         sender: 'bot',
         timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, botMessage]);
+      }]);
     } finally {
       setIsTyping(false);
     }
-  };
-
-  const generateResponse = (query: string): string => {
-    if (query.includes('funding') || query.includes('money') || query.includes('qualify')) {
-      return "Based on your query, here are some funding opportunities:\n\n• Conference Travel: Up to $1,500 for RSOs + $150 per presenter (max $3,000)\n• Individual Presenters: Up to $400\n\nWould you like more details about any of these?";
-    }
-
-    if (query.includes('deadline') || query.includes('when')) {
-      return "Deadlines vary by resource. For Conference Travel funding, applications are typically reviewed on a rolling basis. I recommend checking the specific resource page for exact deadlines.";
-    }
-
-    if (query.includes('legal') || query.includes('healthcare')) {
-      return "I can help you with both legal and healthcare resources:\n\n• Legal: Various legal services and support available through UCF\n• Healthcare: Student health services and wellness programs\n\nWhich would you like to explore first?";
-    }
-
-    if (query.includes('rso') || query.includes('organization')) {
-      return "RSOs have access to special funding and resources! Key opportunities include:\n\n• Conference Travel: $1,500 base + $150 per presenter\n• Various academic and recreational programs\n\nWhat type of RSO activity are you planning?";
-    }
-
-    if (query.includes('research') || query.includes('presentation') || query.includes('conference')) {
-      return "Great! For conference presentations:\n\n• RSOs: $1,500 + $150 per presenter (max $3,000)\n• Individual students: up to $400\n\nThis covers research presentations, art shows, posters, and performances. Would you like to start an application?";
-    }
-
-    return "I'd be happy to help! You can ask me about:\n\n• Funding opportunities\n• Legal and healthcare resources\n• Conference travel support\n• Academic programs\n• Recreational activities\n\nWhat would you like to know more about?";
   };
 
   return (
