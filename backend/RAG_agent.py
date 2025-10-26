@@ -37,7 +37,7 @@ class RAG_Agent():
             temperature = 1,
             top_p = 0.95,
             seed = 0,
-            max_output_tokens = 65535,
+            max_output_tokens = 10000,
             safety_settings = [types.SafetySetting(
             category="HARM_CATEGORY_HATE_SPEECH",
             threshold="OFF"
