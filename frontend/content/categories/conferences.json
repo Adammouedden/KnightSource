@@ -1,0 +1,35 @@
+{
+  "title": "Conferences",
+  "description": "Conference, Registration and Travel (CRT) Committee helps students and RSOs cover academic or professional travel expenses.",
+  "subcategories": [
+    {
+      "name": "CRT Commitee Information",
+      "description_md": "What CRT can pay for: \n\n * Lodging: Hotels near the event \n * Registration: Conference or competition fees \n * Travel: Main transportation (flight, bus, etc.)",
+      "phone": "Apply here (smaller trips): https://knightconnect.campuslabs.com/engage/submitter/form/start/636439",
+      "location": "Apply here (larger or RSO trips: https://knightconnect.campuslabs.com/engage/submitter/form/start/636440",
+      "financial_value_md": "**Yearly Maximums:** \n * RSOs: $4,500 per fiscal year \n * Individuals: $1,000 per fiscal year \n\n (Fiscal year: July 1 - June 30) \n\n **Bonus Funding (Individuals Only)** \n * +$100 if graduate student \n * +$250 for Canada, Mexico, Hawaii, or Alaska \n * +$500 for outside North America",
+      "exceptions_md": "**What CRT won't pay for:** \n * Mission or cultural exchange trips \n * Food, social events, or Airbnb stays \n * Personal/rental vehicles, Uber, or taxis \n * Study abroad or internships \n *Trips longer than 30 days or within 50 miles of UCF (unless approved) \n * Anything bought before meeting with the Business Office \n\n**International Travel:** \n * Must be approved by UCF Global \n * Destination must have a Level 3 or lower travel advisory \n * International students apply 5 business days earlier and complete extra forms \n\n**Deadlines** \n * Allocations: Submit ≥ 4 weeks before trip \n * Bills: Submit ≥ 12 weeks before trip",
+      "steps_md": "\n1. Complete Financial Training \n\t https://webcourses.ucf.edu/enroll/4FCC68 \n2. Apply on KnightConnect \n\t * Allocation (for smaller trips): at least 4 weeks before travel \n\t * Bill (for larger or RSO trips): at least 12 weeks before travel \n 3. Attend Your CRT Meeting  \n\t * You’ll receive details by email. Be ready to speak briefly about your trip and show quotes. \n4. After Approval\n\t Wait for your Travel Procurement Coordinator (TPC) to contact you. \n\t Don’t make purchases before meeting them – no reimbursements! \n5. After the Trip \n\tSubmit receipts and proof of travel within 30 days."
+    },
+    {
+      "name": "Competitions",
+      "description_md": "Competitions (academic/professional contests) \n * RSO: $2,500 (all must compete) \n * Individual: $350 max"
+    },
+    {
+      "name": "Observational / Field Research",
+      "description_md": "Observational or fieldwork trips: \n * RSO: up to $2,500 (all must participate) \n * Individual: $400"
+    }, 
+     {
+      "name": "Presentation of Research or Art",
+      "description_md": "Attending an event to show your work, research posters, performances, etc.  \n * RSO: $1,500 + $150 per presenter (max $3,000) \n * Individual: $400"
+    }, 
+    {
+      "name": "Seminars/Networking Events",
+      "description_md": "Seminars/Networking Events (workshops, career conferences)  \n * RSO: up to $1,500 (all must register) \n * Individual: $200 max"
+    }, 
+    {
+      "name": "Service Trips",
+      "description_md": "RS0-led volunteer trips \n * RSO: up to $2,500 (min. 6 participants) \n * Individual: N/A"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+Student Equipment Reservation
+Students can rent recreational equipment from the RWC office using their UCF ID, subject to availability.
+Minimum processing time: 10 business days
+
+
+Valid UCF ID required for both check-out and return
+ Submit a Reservation Request: http://ucf.qualtrics.com/jfe/form/SV_5uq5qcKL9OIWd49

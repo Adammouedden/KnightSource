@@ -1,0 +1,51 @@
+{
+  "title": "Recreation",
+  "description": "Fitness, wellness, and recreational facilities included with your tuition.",
+  "subcategories": [
+    {
+      "name": "Recreation and Wellness Center",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "location": " - ",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    },
+    {
+      "name": "Outdoor Adventure Programs",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "location": " - ",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    },
+    {
+      "name": "Intramural Sports",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "location": " - ",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    },
+    {
+      "name": "Group Fitness Classes",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "location": " - ",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    },
+    {
+      "name": "Pool and Aquatics",
+      "description_md": "**PASTE: Subcategory specific description**",
+      "phone": "PASTE: Phone number",
+      "location": " - ",
+      "financial_value_md": "**PASTE: Financial value**",
+      "exceptions_md": "**PASTE: Exceptions (bullets)**",
+      "steps_md": "**PASTE: Steps (numbered)**"
+    }
+  ]
+}
