@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { UserCircle2 } from 'lucide-react';
+import { UserCircle2, LogOut } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { useState, useEffect } from 'react';
 import {
@@ -27,33 +27,31 @@ export function Header() {
   const [mounted, setMounted] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [showDialog, setShowDialog] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    const signedIn = localStorage.getItem('isSignedIn');
+    if (signedIn === 'true') {
+      setIsSignedIn(true);
+    }
   }, []);
 
-  const handleSignIn = async (e: React.FormEvent) => {
+  const handleSignIn = (e: React.FormEvent) => {
     e.preventDefault();
-    try {
-      const response = await fetch('/api/auth/signin', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        // Handle successful sign in (e.g., store token, update UI)
-        console.log('Signed in successfully:', data);
-      } else {
-        // Handle error
-        console.error('Sign in failed');
-      }
-    } catch (error) {
-      console.error('Error during sign in:', error);
+    if (email === 'test@example.com' && password === 'testpassword') {
+      setIsSignedIn(true);
+      localStorage.setItem('isSignedIn', 'true');
+      setShowDialog(false);
+    } else {
+      alert('Invalid credentials. Please try again.');
     }
+  };
+
+  const handleLogout = () => {
+    setIsSignedIn(false);
+    localStorage.removeItem('isSignedIn');
   };
 
   const categories = [
@@ -82,6 +80,15 @@ export function Header() {
               Home
             </Link>
 
+            {isSignedIn && (
+              <Link
+                href="/visualizations"
+                className="text-sm font-medium transition-colors hover:text-amber-600"
+              >
+                Visualizations
+              </Link>
+            )}
+
             <DropdownMenu>
               <DropdownMenuTrigger className="text-sm font-medium transition-colors hover:text-amber-600 flex items-center gap-1">
                 Categories
@@ -102,58 +109,75 @@ export function Header() {
         <div className="flex items-center gap-2">
           {mounted && (
             <>
-              <Button
-                variant="ghost"
-                size="sm"
-                className="group relative overflow-hidden bg-gradient-to-r from-amber-500/10 to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 transition-all duration-300 px-6"
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-              >
-                {theme === 'dark' ? '🌞' : '🌙'}
-              </Button>
-              <Dialog>
-                <DialogTrigger asChild>
+              {isSignedIn ? (
+                <>
+                  <Link href="/profile">
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="group relative overflow-hidden bg-gradient-to-r from-amber-500/10 to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 transition-all duration-300 px-6"
+                    >
+                      <span className="flex items-center gap-2">
+                        <UserCircle2 className="w-4 h-4 text-amber-600" />
+                        <span className="font-medium">Profile</span>
+                      </span>
+                    </Button>
+                  </Link>
                   <Button
                     variant="ghost"
-                    size="sm"
-                    className="group relative overflow-hidden bg-gradient-to-r from-amber-500/10 to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 transition-all duration-300 px-6"
+                    size="icon"
+                    onClick={handleLogout}
+                    className="group relative overflow-hidden bg-gradient-to-r from-red-500/10 to-rose-500/10 hover:from-red-500/20 hover:to-rose-500/20 transition-all duration-300"
                   >
-                    <span className="flex items-center gap-2">
-                      <UserCircle2 className="w-4 h-4 text-amber-600" />
-                      <span className="font-medium">Sign In</span>
-                    </span>
+                    <LogOut className="h-4 w-4 text-rose-600" />
                   </Button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[425px]">
-                  <DialogHeader>
-                    <DialogTitle>Sign In</DialogTitle>
-                  </DialogHeader>
-                  <form onSubmit={handleSignIn} className="space-y-4 mt-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="password">Password</Label>
-                      <Input
-                        id="password"
-                        type="password"
-                        placeholder="Enter your password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        required
-                      />
-                    </div>
-                    <Button type="submit" className="w-full">Sign In</Button>
-                  </form>
-                </DialogContent>
-              </Dialog>
+                </>
+              ) : (
+                <Dialog open={showDialog} onOpenChange={setShowDialog}>
+                  <DialogTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="group relative overflow-hidden bg-gradient-to-r from-amber-500/10 to-orange-500/10 hover:from-amber-500/20 hover:to-orange-500/20 transition-all duration-300 px-6"
+                    >
+                      <span className="flex items-center gap-2">
+                        <UserCircle2 className="w-4 h-4 text-amber-600" />
+                        <span className="font-medium">Sign In</span>
+                      </span>
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="sm:max-w-[425px]">
+                    <DialogHeader>
+                      <DialogTitle>Sign In</DialogTitle>
+                    </DialogHeader>
+                    <form onSubmit={handleSignIn} className="space-y-4 mt-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="Enter your email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          required
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="password">Password</Label>
+                        <Input
+                          id="password"
+                          type="password"
+                          placeholder="Enter your password"
+                          value={password}
+                          onChange={(e) => setPassword(e.target.value)}
+                          required
+                        />
+                      </div>
+                      <Button type="submit" className="w-full">Sign In</Button>
+                    </form>
+                  </DialogContent>
+                </Dialog>
+              )}
             </>
           )}
         </div>
