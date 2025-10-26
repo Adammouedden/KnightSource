@@ -9,6 +9,7 @@ interface Message {
   text: string;
   sender: 'user' | 'bot';
   timestamp: Date;
+  paragraphs?: string[];
 }
 
 export function Chatbot() {
@@ -51,9 +52,8 @@ export function Chatbot() {
     setInput('');
     setIsTyping(true);
 
-    // Call RAG service at http://0.0.0.0:8000/RAG?prompt=
+    // Call RAG
     try {
-      //const endpoint = `http://0.0.0.0:8000/RAG?prompt=${encodeURIComponent(text)}`;
       const endpoint = `http://localhost:8000/RAG?prompt=${encodeURIComponent(text)}`;
       const res = await fetch(endpoint, {
         method: 'GET',
@@ -74,9 +74,38 @@ export function Chatbot() {
         botText = generateResponse(text.toLowerCase());
       }
 
+      console.log("botText", botText);
+
+      // Handle responses that may be JSON-wrapped or contain escaped newlines
+      let parsedText = botText;
+      try {
+        const maybeJson = JSON.parse(botText);
+        if (typeof maybeJson === 'string') {
+          parsedText = maybeJson;
+        } else if (maybeJson?.response) {
+          parsedText = maybeJson.response;
+        } else if (maybeJson?.answer) {
+          parsedText = maybeJson.answer;
+        }
+      } catch (e) {
+        // not JSON — keep original
+      }
+
+      // Convert escaped newlines and HTML breaks to real newlines
+      parsedText = parsedText.replace(/\\n/g, '\n').replace(/<br\s*\/?>/gi, '\n');
+
+      // Split into paragraphs on one or more blank lines (double newlines)
+      const paragraphs = parsedText
+        .split(/\n{2,}/)
+        .map((p) => p.replace(/\n+/g, ' ').trim())
+        .filter(Boolean);
+
+      console.log("paragraphs", paragraphs);
+
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: botText,
+        text: parsedText,
+        paragraphs,
         sender: 'bot',
         timestamp: new Date(),
       };
@@ -84,9 +113,12 @@ export function Chatbot() {
       setMessages((prev) => [...prev, botMessage]);
     } catch (err) {
       console.error('RAG request error', err);
+      const fallbackText = generateResponse(text.toLowerCase());
+      const paragraphs = fallbackText.split(/\n+/).map((p) => p.trim()).filter(Boolean);
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: generateResponse(text.toLowerCase()),
+        text: fallbackText,
+        paragraphs,
         sender: 'bot',
         timestamp: new Date(),
       };
@@ -158,7 +190,13 @@ export function Chatbot() {
                         : 'bg-knight-gray/20 text-off-white rounded-bl-sm'
                     }`}
                   >
-                    <p className="text-sm whitespace-pre-line leading-relaxed">{message.text}</p>
+                    {message.paragraphs ? (
+                      message.paragraphs.map((para, idx) => (
+                        <p key={idx} className="text-sm leading-relaxed mb-2">{para}</p>
+                      ))
+                    ) : (
+                      <p className="text-sm whitespace-pre-line leading-relaxed">{message.text}</p>
+                    )}
                   </div>
                 </div>
               ))}
@@ -179,11 +217,13 @@ export function Chatbot() {
 
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-knight-gray/20 text-off-white p-3 rounded-2xl rounded-bl-sm">
-                    <div className="flex space-x-2">
-                      <div className="w-2 h-2 bg-knight-gray rounded-full animate-bounce" />
-                      <div className="w-2 h-2 bg-knight-gray rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-                      <div className="w-2 h-2 bg-knight-gray rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                  <div className="bg-knight-gray/20 text-off-white p-3 rounded-2xl rounded-bl-sm max-w-[60%]">
+                    <div className="flex items-center">
+                      <div className="flex space-x-2 items-center">
+                        <div className="w-2 h-2 bg-white rounded-full" style={{ animation: 'typing-bounce 1s ease-in-out infinite' }} />
+                        <div className="w-2 h-2 bg-white rounded-full" style={{ animation: 'typing-bounce 1s ease-in-out infinite', animationDelay: '0.1s' }} />
+                        <div className="w-2 h-2 bg-white rounded-full" style={{ animation: 'typing-bounce 1s ease-in-out infinite', animationDelay: '0.2s' }} />
+                      </div>
                     </div>
                   </div>
                 </div>
