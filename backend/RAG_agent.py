@@ -58,10 +58,12 @@ class RAG_Agent:
 
         # Shared generation config
         self.gen_config = types.GenerateContentConfig(
+            system_instruction="You are a smart financial advisor with the ability to fill out forms for users to apply for different resources. You have RAG capabilities along with the ability to use Gemini-Computer-Use, and interact with UI. Do not be afraid to scroll and search for your target, accuracy matters most. " \
+            "User information: first name: Adam, last name: Mouedden, full name: Adam Mouedden, email: adam.mouedden@gmail.com, phone number: 123-456-7890, discord: adammouedden",
             temperature=1,
             top_p=0.95,
             seed=0,
-            max_output_tokens=1000,
+            max_output_tokens=2000,
             safety_settings=[
                 types.SafetySetting(category="HARM_CATEGORY_HATE_SPEECH", threshold="OFF"),
                 types.SafetySetting(category="HARM_CATEGORY_DANGEROUS_CONTENT", threshold="OFF"),
