@@ -3,22 +3,15 @@
   "description": "Fitness, wellness, and recreational facilities included with your tuition.",
   "subcategories": [
     {
-      "name": "Recreation and Wellness Center",
-      "description_md": "The **UCF Recreation and Wellness Center (RWC)** is a full-service fitness facility included in your tuition and student fees. It offers access to strength and cardio equipment, courts, climbing walls, fitness classes, and wellness programs—all designed to help you stay active and de-stress between classes.",
-      "phone": "407-823-2408",
-      "location": "UCF Main Campus, 100 Gemini Blvd N",
-      "financial_value_md": "* Full gym membership valued at **$300–$600 per year** if paid privately.\n* Access to multiple recreational facilities, group classes, and events at no additional cost.",
-      "exceptions_md": "* Must present a **valid UCF ID** to enter.\n* Guest passes available for purchase.\n* Some specialized classes or trips may have additional fees.",
-      "steps_md": "1. Bring your **UCF ID** to access the facility.  \n2. Explore offerings including gym equipment, courts, climbing, and classes.  \n3. Visit [rwc.sswb.ucf.edu](https://rwc.sswb.ucf.edu) for schedules, programs, and updates."
-    },
-    {
-      "name": "Outdoor Adventure Programs",
+      "name": "Open Knight Climb",
       "description_md": "**Open Knight Climb** – Experience UCF’s **Odyssey III High Element Course** under the stars. Open from **7:00 PM**, last entry at **9:00 PM**. Perfect for adventure, teamwork, and personal challenge.\n\nRegister here: [Open Knight Climb Registration](https://ucfrwc.org/booking/54e23deb-011a-4743-94df-b986b042dab1)\nLearn more: [Challenge Course Info](https://rwc.sswb.ucf.edu/programs/outdoor-adventure/challenge-course/)",
       "phone": "407-823-2408",
       "location": "UCF Main Campus – RWC Challenge Course",
       "financial_value_md": "* **Free or low-cost registration** (private courses of this kind often cost **$50–$100 per participant**).\n* Team-building and outdoor recreation included with your student fees.",
       "exceptions_md": "* Advance registration required.\n* Participants must sign a **waiver** before climbing.\n* Must wear **closed-toe shoes** and appropriate clothing.",
-      "steps_md": "1. Visit the **registration link** above.  \n2. Choose an available session (spaces are limited).  \n3. Arrive by **7:00 PM** with your UCF ID.  \n4. Follow safety briefing and enjoy the high element course!"
+      "steps_md": "1. Visit the **registration link** above.  \n2. Choose an available session (spaces are limited).  \n3. Arrive by **7:00 PM** with your UCF ID.  \n4. Follow safety briefing and enjoy the high element course!",
+      "buttonDescription": "Intelligent Apply",
+      "buttonLink": "https://ucfrwc.org/booking"
     },
     {
       "name": "Intramural Sports",
@@ -27,16 +20,20 @@
       "location": "Recreation and Wellness Center Fields & Courts",
       "financial_value_md": "* **Free participation** (typical league fees elsewhere range from **$30–$100 per season**).\n* Opportunity to play organized sports without additional cost.",
       "exceptions_md": "* Must be a **currently enrolled UCF student**.\n* Team captains are responsible for ensuring all members are registered and eligible.\n* Defaults or forfeits may affect future eligibility.",
-      "steps_md": "1. Visit [IMLeagues](https://imleagues.com/spa/intramural/136f2fd71bae48bc8ee2f37e418505d9/home).  \n2. Create an account using your **UCF email**.  \n3. Join an existing team or start your own.  \n4. Attend games and check schedules online.  \n5. Compete, have fun, and represent your team!"
+      "steps_md": "1. Visit [IMLeagues](https://imleagues.com/spa/intramural/136f2fd71bae48bc8ee2f37e418505d9/home).  \n2. Create an account using your **UCF email**.  \n3. Join an existing team or start your own.  \n4. Attend games and check schedules online.  \n5. Compete, have fun, and represent your team!",
+      "buttonDescription": "Intelligent Apply",
+      "buttonLink": "https://imleagues.com/spa/intramural/136f2fd71bae48bc8ee2f37e418505d9/home"
     },
     {
-      "name": "Equipment Reservation",
+      "name": "Outdoor Activities Equipment Reservation",
       "description_md": "Students can **rent recreational and outdoor equipment** from the RWC using their UCF ID. Items include sports gear, camping supplies, watercraft, and beverage coolers. Reservations must be submitted in advance and are subject to availability.\n\nSubmit a reservation request: [RWC Equipment Reservation Form](http://ucf.qualtrics.com/jfe/form/SV_5uq5qcKL9OIWd49)\nOutdoor gear rentals: [OAC Rental Request Form](https://ucf.qualtrics.com/jfe/form/SV_ewAQOlYlr2Xg1A9)",
       "phone": "407-823-2408",
       "location": "RWC Front Desk & Outdoor Adventure Center (Room 154)",
       "financial_value_md": "* **Free reservation service**; equipment rental rates significantly discounted compared to private outfitters.\n* Save **$20–$100+** compared to retail outdoor rentals.\n* Access to quality camping, water, and sports gear without ownership costs.",
       "exceptions_md": "* Must have a **valid UCF ID** for both check-out and return.\n* Minimum processing time: **10 business days**.\n* Late returns or damaged items may result in fees.",
-      "steps_md": "1. Complete the **online reservation form** linked above.  \n2. Wait for email confirmation of approval and pickup time.  \n3. Bring your **UCF ID** to collect equipment.  \n4. Return all items by the agreed date to avoid late fees."
+      "steps_md": "1. Complete the **online reservation form** linked above.  \n2. Wait for email confirmation of approval and pickup time.  \n3. Bring your **UCF ID** to collect equipment.  \n4. Return all items by the agreed date to avoid late fees.",
+      "buttonDescription": "Intelligent Apply",
+      "buttonLink": "https://ucf.qualtrics.com/jfe/form/SV_ewAQOlYlr2Xg1A9"
     },
     {
       "name": "SG Ticket Center",
@@ -46,6 +43,8 @@
       "financial_value_md": "* Save **$10–$50+ per ticket** on popular destinations such as Disney, Universal, Busch Gardens, and more.\n* Convenient on-campus access to discounted passes without third-party fees.",
       "exceptions_md": "* **Tickets must be purchased in person.**\n* Only **current UCF students** are eligible for discounted rates.\n* Ticket availability may vary by season and partner.",
       "steps_md": "1. Visit the **Ticket Center** in the Student Union (Room 107).  \n2. Bring your **UCF ID** for student verification.  \n3. Choose from available theme park or attraction tickets.  \n4. Pay in person and enjoy exclusive student pricing."
+      ,"buttonDescription": "Learn More",
+      "buttonLink": "https://ticketcenter.sdes.ucf.edu/"
     }
   ]
 }
