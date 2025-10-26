@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Header } from "@/components/Header";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { Toaster } from "@/components/ui/toaster";
+import { useToast } from "@/hooks/use-toast";
 
 export default function ProfilePage() {
   const [profile, setProfile] = useState({
@@ -16,11 +19,26 @@ export default function ProfilePage() {
     major: "",
   });
 
+  const router = useRouter();
+  const { toast } = useToast();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Save to localStorage
     localStorage.setItem("userProfile", JSON.stringify(profile));
-    alert("Profile updated successfully!");
+    
+    // Show toast notification using the useToast hook
+    toast({
+      variant: "default",
+      title: "Profile Updated",
+      description: "Your profile has been successfully updated!",
+      duration: 2000,
+    });
+
+    // Redirect to home page after a short delay
+    setTimeout(() => {
+      router.push('/home');
+    }, 1000);
   };
 
   useEffect(() => {
@@ -33,8 +51,9 @@ export default function ProfilePage() {
 
   return (
     <div className="px-4">
-    <Header />
-    <div className="container max-w-2xl py-10 place-self-center">
+      <Header />
+      <Toaster />
+      <div className="container max-w-2xl py-10 place-self-center">
         
       <Card>
         <CardHeader>
