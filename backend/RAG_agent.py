@@ -12,7 +12,7 @@ class RAG_Agent():
         self.client = genai.Client(vertexai=True,api_key=api_key)
 
     def generate(self, prompt: str):
-
+        print(prompt)
         model = "gemini-2.5-flash"
         contents = [
             types.Content(
@@ -56,9 +56,20 @@ class RAG_Agent():
             thinking_budget=-1,
             ),
         )
+        return_string = ""
+        for chunk in self.client.models.generate_content_stream(
+            model = model,
+            contents = contents,
+            config = generate_content_config,
+            ):
+            if not chunk.candidates or not chunk.candidates[0].content or not chunk.candidates[0].content.parts:
+                continue
+            print(chunk.text, end="")
+            return_string += " " + chunk.text
 
-        response = self.client.models.generate_content_stream(model = model,contents = contents,config = generate_content_config)
-        return response.text
+        return return_string
+        
+
 
 if __name__ == "__main__":
     agent = RAG_Agent()
