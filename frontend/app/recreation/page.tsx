@@ -24,15 +24,7 @@ export default function RecreationPage() {
 
             {process.env.NODE_ENV === 'development' && (
               <details className="mt-8 p-4 bg-muted rounded-lg text-sm">
-                <summary className="font-semibold cursor-pointer">
-                  Dev: Content File Location
-                </summary>
-                <p className="mt-2 text-muted-foreground">
-                  Edit:{' '}
-                  <code className="bg-background px-2 py-1 rounded">
-                    /content/categories/recreation.json
-                  </code>
-                </p>
+                
               </details>
             )}
           </div>

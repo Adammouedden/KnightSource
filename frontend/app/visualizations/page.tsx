@@ -59,6 +59,7 @@ const mockData = {
         ],
       },
     ],
+    
   },
   userDistribution: {
     labels: ['Students', 'Faculty', 'Staff', 'Alumni'],
@@ -74,6 +75,91 @@ const mockData = {
       },
     ],
   },
+  
+};
+// Example budget + expenditure data
+const budgets = [
+  { category: 'Legal',      budget: 651445, spent: 603348.97 },
+  { category: 'Academics',  budget: 1838427, spent: 1484684.87 },
+  { category: 'Healthcare', budget: 8300000, spent: 4000000},
+  { category: 'Conferences',budget: 510000, spent: 488174.19},
+  { category: 'Recreation', budget: 6573670, spent: 5220458.20 },
+];
+
+const resourceLabels = budgets.map(b => b.category);
+const totalBudgetData = budgets.map(b => b.budget);
+const remainingData   = budgets.map(b => Math.max(b.budget - b.spent, 0));
+// helper
+const fmt = (n: number) => `$${Math.round(n).toLocaleString()}`;
+
+const resourceUsageOverlay = {
+  labels: resourceLabels,
+  datasets: [
+    {
+      label: 'Total Budget',
+      data: totalBudgetData,
+      backgroundColor: 'rgba(194, 154, 43, 0.3)', // gray base bar
+      borderRadius: 8,
+      barThickness: 36,
+      order: 1,
+      borderSkipped: false,
+    },
+    {
+      label: 'Remaining',
+      data: remainingData,
+      backgroundColor: 'rgba(217,119,6,0.9)', // UCF gold color
+      borderRadius: 8,
+      barThickness: 36,
+      order: 2,
+      borderSkipped: false,
+    },
+  ],
+};
+
+const resourceUsageOptions = {
+  responsive: true,
+  plugins: {
+    legend: { position: 'top' as const },
+    tooltip: {
+      callbacks: {
+        title: (items: any[]) => items[0]?.label ?? '',
+        afterLabel: (ctx: any) => {
+          const i = ctx.dataIndex;
+          const b = budgets[i];
+          const remaining = Math.max(b.budget - b.spent, 0);
+          const lines = [
+            `Budget: $${b.budget.toLocaleString()}`,
+            `Spent: $${b.spent.toLocaleString()}`,
+            `Remaining: $${remaining.toLocaleString()}`,
+          ];
+          return lines;
+        },
+        label: () => '',
+      },
+    },
+  },
+  
+  scales: {
+  x: {
+    grid: { display: false },
+    ticks: {
+      // show: "Category (Remaining)"
+      callback: (_value: any, index: number) => {
+        const label = resourceLabels[index];
+        const rem = remainingData[index];
+        return [`${label}`, `(${fmt(rem)})`];
+      },
+      maxRotation: 0, // keep labels horizontal
+      autoSkip: false
+    },
+  },
+  y: {
+    beginAtZero: false,
+    min: 0,
+    ticks: { callback: (v: any) => `$${Number(v).toLocaleString()}` },
+  },
+}
+,
 };
 
 export default function VisualizationsPage() {
@@ -113,22 +199,13 @@ export default function VisualizationsPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Resource Usage Distribution</CardTitle>
+            <CardTitle>2024-2025 Budget vs Remaining</CardTitle>
           </CardHeader>
           <CardContent>
-            <Bar 
-              data={mockData.resourceUsage}
-              options={{
-                responsive: true,
-                plugins: {
-                  legend: {
-                    position: 'top' as const,
-                  },
-                },
-              }}
-            />
+            <Bar data={resourceUsageOverlay} options={resourceUsageOptions} />
           </CardContent>
         </Card>
+
 
         <Card className="md:col-span-2">
           <CardHeader>
