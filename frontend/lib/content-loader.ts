@@ -9,6 +9,8 @@ export interface Subcategory {
   financial_value_md: string;
   exceptions_md: string;
   steps_md: string;
+  buttonDescription: string;
+  buttonLink: string;
 }
 
 export interface CategoryData {

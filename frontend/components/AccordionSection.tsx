@@ -107,6 +107,17 @@ export function AccordionSection({ subcategories }: AccordionSectionProps) {
                   {renderMarkdown(sub.steps_md)}
                 </div>
               )}
+              <div className="pt-4">
+                <button
+                  onClick={() => window.open(sub.buttonLink, "_blank")}
+                  className="bg-amber-600 text-white font-semibold px-4 py-2 rounded-lg hover:bg-amber-700 transition"
+                >
+                  {sub.buttonDescription}
+                </button>
+
+              </div>
+
+
             </div>
           </AccordionContent>
         </AccordionItem>
