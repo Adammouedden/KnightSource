@@ -51,18 +51,49 @@ export function Chatbot() {
     setInput('');
     setIsTyping(true);
 
-    setTimeout(() => {
-      const response = generateResponse(text.toLowerCase());
+    // Call RAG service at http://0.0.0.0:8000/RAG?prompt=
+    try {
+      //const endpoint = `http://0.0.0.0:8000/RAG?prompt=${encodeURIComponent(text)}`;
+      const endpoint = `http://localhost:8000/RAG?prompt=${encodeURIComponent(text)}`;
+      const res = await fetch(endpoint, {
+        method: 'GET',
+        headers: {
+          'Accept': 'text/plain',
+        },
+      });
+
+      console.error("res", res);
+
+      let botText: string;
+      if (res.ok) {
+        // assume the service returns plain text
+        botText = await res.text();
+      } else {
+        // fallback to local generator if remote fails
+        console.error('RAG request failed', res.status, await res.text());
+        botText = generateResponse(text.toLowerCase());
+      }
+
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: response,
+        text: botText,
         sender: 'bot',
         timestamp: new Date(),
       };
 
       setMessages((prev) => [...prev, botMessage]);
+    } catch (err) {
+      console.error('RAG request error', err);
+      const botMessage: Message = {
+        id: (Date.now() + 1).toString(),
+        text: generateResponse(text.toLowerCase()),
+        sender: 'bot',
+        timestamp: new Date(),
+      };
+      setMessages((prev) => [...prev, botMessage]);
+    } finally {
       setIsTyping(false);
-    }, 1000);
+    }
   };
 
   const generateResponse = (query: string): string => {

@@ -10,7 +10,7 @@ import { Scale, GraduationCap, Heart, Plane, Dumbbell } from 'lucide-react';
 const categories = [
   {
     title: 'Legal',
-    description: 'Free legal services and assistance for UCF students.',
+    description: 'Free legal services, consultations, and assistance for UCF students.',
     href: '/legal',
     icon: Scale,
   },
