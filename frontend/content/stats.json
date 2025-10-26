@@ -1,8 +1,8 @@
 {
   "totalResources": 47,
   "avgSavingsPerStudent": 2847,
-  "topCategories": 5,
-  "timeToFirstWin": "5 minutes",
+  "topCategories": 6,
+  "percentageUnused": 32,
   "savingsEstimator": {
     "baseValue": 1200,
     "classYearMultipliers": {

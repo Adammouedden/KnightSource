@@ -2,6 +2,8 @@ from google import genai
 from google.genai import types
 import os
 from dotenv import load_dotenv
+import asyncio
+from anyio import to_thread
 
 from computer_use.main import gemini_computer_use
 
@@ -56,10 +58,12 @@ class RAG_Agent:
 
         # Shared generation config
         self.gen_config = types.GenerateContentConfig(
+            system_instruction="You are a smart financial advisor with the ability to fill out forms for users to apply for different resources. You have RAG capabilities along with the ability to use Gemini-Computer-Use, and interact with UI. Do not be afraid to scroll and search for your target, accuracy matters most. " \
+            "User information: first name: Adam, last name: Mouedden, full name: Adam Mouedden, email: adam.mouedden@gmail.com, phone number: 123-456-7890, discord: adammouedden",
             temperature=1,
             top_p=0.95,
             seed=0,
-            max_output_tokens=1000,
+            max_output_tokens=2000,
             safety_settings=[
                 types.SafetySetting(category="HARM_CATEGORY_HATE_SPEECH", threshold="OFF"),
                 types.SafetySetting(category="HARM_CATEGORY_DANGEROUS_CONTENT", threshold="OFF"),
@@ -70,7 +74,7 @@ class RAG_Agent:
             thinking_config=types.ThinkingConfig(thinking_budget=-1),
         )
 
-    def generate(self, prompt: str) -> str:
+    async def generate(self, prompt: str) -> str:
         model = "gemini-2.5-flash"
 
         contents = [
@@ -100,7 +104,7 @@ class RAG_Agent:
                         q = args.get("query", prompt)
                         initial_url = args.get("initial_url", "http://www.google.com")
                         # Run your Playwright loop ONLY when requested
-                        gemini_computer_use(query=q, initial_url=initial_url)
+                        await to_thread.run_sync(gemini_computer_use, q, initial_url)
                         # Optionally append a short note to the final text
                         out.append("[Opened browser to investigate and complete the task.]")
                     # If you add more functions later, handle them here.
