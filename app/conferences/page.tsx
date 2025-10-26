@@ -7,7 +7,7 @@ import data from '@/content/categories/conferences.json'; // ✅ Direct import (
 
 export default function ConferencesPage() {
   return (
-    <div className="min-h-screen flex flex-col px-4">
+    <div className="min-h-screen flex flex-col">
       <Header />
 
       <main className="flex-1">

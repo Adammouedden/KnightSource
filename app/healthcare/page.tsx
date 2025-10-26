@@ -4,30 +4,11 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Chatbot } from '@/components/Chatbot';
 import { AccordionSection } from '@/components/AccordionSection';
-import { useEffect, useState } from 'react';
-import { CategoryData } from '@/lib/content-loader';
+
+// 👇 Direct import of the JSON file
+import data from '@/content/categories/healthcare.json';
 
 export default function HealthcarePage() {
-  const [data, setData] = useState<CategoryData | null>(null);
-
-  useEffect(() => {
-    fetch('/content/categories/healthcare.json')
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
-
-  if (!data) {
-    return (
-      <div className="min-h-screen flex flex-col px-4">
-        <Header />
-        <main className="flex-1 flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600" />
-        </main>
-        <Footer />
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen flex flex-col">
       <Header />

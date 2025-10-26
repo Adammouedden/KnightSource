@@ -3,31 +3,32 @@
   "description": "Academic support services, tutoring, and educational resources.",
   "subcategories": [
     {
-      "name": "Free Tutoring Services",
-      "description_md": "**PASTE: Subcategory specific description**",
-      "phone": "PASTE: Phone number",
-      "location": " - ",
-      "financial_value_md": "**PASTE: Financial value**",
-      "exceptions_md": "**PASTE: Exceptions (bullets)**",
-      "steps_md": "**PASTE: Steps (numbered)**"
+      "name": "Scholarships (A2O: Access to Opportunities Portal)",
+    "description_md": "The **UCF A2O (Access to Opportunities)** portal is the university’s centralized scholarship platform that connects students with **hundreds of scholarships** across all UCF colleges and departments. Once students log in with their **UCF NID and password**, they can complete a general application that automatically matches them with scholarships they qualify for—plus additional ones that require essays, resumes, or supporting documents. The portal includes both **UCF Foundation scholarships** (internal) and **external scholarships** available year-round, helping students secure funding for tuition, housing, and academic expenses.",
+    "phone": "UCF Office of Student Financial Assistance: 407-823-2827 | Email: sfascholarships@ucf.edu | Website: https://ucf.academicworks.com",
+    "location": "-",
+    "financial_value_md": "* Students can earn **anywhere from $500 to $5,000+ per scholarship**, depending on the fund.\n* Many students qualify for **multiple awards each year**, which can collectively offset **thousands of dollars in tuition and living costs**.\n* Some first-generation and need-based scholarships can **cover full tuition gaps** not met by federal aid.",
+    "exceptions_md": "* Students must be **admitted to UCF with a paid seat deposit** or be **currently enrolled** to log in.\n* **DACA, TPS, and undocumented students are ineligible** for internal UCF scholarships.\n* Most scholarships follow the **UCF Scholarship Cycle** (applications open early Spring for the following Fall).\n* Some scholarships may have **specific eligibility requirements** such as GPA, major, credit hours, or financial need.",
+    "steps_md": "1. **Go to** https://ucf.academicworks.com and sign in using your **UCF NID and password.**\n2. **Complete the General Application** — this automatically qualifies you for many scholarships based on your responses.\n3. Review and apply for **“Recommended” scholarships** that may require additional essays, resumes, or uploads.\n4. Check the **“Ours” tab** for internal UCF Foundation scholarships and the **“External” tab** for outside opportunities.\n5. Submit all applications **by the posted deadlines** (typically **October 31, 2025**, for most First Generation awards).\n6. **Monitor your email** for notifications from **A2O@ucf.edu** if you’re selected for an award.\n7. For assistance, contact the **Office of Student Financial Assistance** or your specific college’s scholarship manager."
     },
     {
-      "name": "Writing Center",
-      "description_md": "**PASTE: Subcategory specific description**",
-      "phone": "PASTE: Phone number",
-      "location": " - ",
-      "financial_value_md": "**PASTE: Financial value**",
-      "exceptions_md": "**PASTE: Exceptions (bullets)**",
-      "steps_md": "**PASTE: Steps (numbered)**"
+    "name": "Scholarships (General UCF Scholarship Resources)",
+    "description_md": "UCF offers a wide range of **scholarship opportunities** to help students finance their education—both through **university-funded programs** (e.g., Pegasus, Bright Futures) and **external scholarships** from private donors and organizations. The Office of Student Financial Assistance provides centralized access via **Access 2 Opportunities (A2O)**, a one-time application portal that automatically matches students to more than **200 internal scholarships** plus hundreds of external awards. Students can also find **college-specific scholarships**, learn **essay-writing strategies**, and access **verified external scholarship search databases**.",
+    "phone": "844-376-9160 | finaid@ucf.edu | https://ucf.academicworks.com",
+    "location": "Office: Millican Hall, Room 107, 4000 Central Florida Blvd, Orlando, FL 32816 | Mailing: P.O. Box 160113, Orlando, FL 32816-0113",
+    "financial_value_md": "* Access to **hundreds of UCF and external scholarships**, typically **$500–$10,000+ per award**.\n* **Florida Bright Futures** can cover up to **100% of tuition and fees** for eligible Florida students.\n* **Pegasus Scholarships** (automatic for incoming freshmen) can total up to **~$14,000 across four years**.\n* External resources provide **billions in potential awards**, often tailored to majors, backgrounds, or career goals.",
+    "exceptions_md": "* **Late applications** — most UCF/A2O scholarships open **January–May** for the upcoming year.\n* **DACA, TPS, and undocumented students** are **not eligible** for UCF-administered internal scholarships.\n* Federal/state rules prevent receiving **aid exceeding total cost of attendance**.\n* Some scholarships require a **completed FAFSA** and/or **specific GPA, major, credit hours, or need** criteria.",
+    "steps_md": "1. **Visit** the UCF Scholarship Search or the **A2O Portal**: https://ucf.academicworks.com.\n2. **Complete the General A2O Application** to be auto-matched to internal awards.\n3. **Search by college/department** for specialized awards (e.g., Engineering, Rosen, Nursing).\n4. **Check your email (and Clutter/Junk)** for updates from UCF Financial Aid, AcademicWorks, or A2O.\n5. **Apply early** — **January–May** is optimal for most scholarships.\n6. For **external scholarships**, use UCF-vetted databases such as **Fastweb**, **Chegg**, **Unigo**, and **Sallie Mae**.\n7. **Report private scholarship checks** via the **Self Report Tool** in myUCF and deliver to **Millican Hall 107** for processing.\n8. **Avoid scams:** never pay for searches, share banking info, or apply to “guaranteed” offers.\n9. For **appeals/verification**, use the **Document & File Upload** tool on the Financial Aid site or email **finaid@ucf.edu**."
     },
     {
-      "name": "Research Resources",
-      "description_md": "**PASTE: Subcategory specific description**",
-      "phone": "PASTE: Phone number",
-      "location": " - ",
-      "financial_value_md": "**PASTE: Financial value**",
-      "exceptions_md": "**PASTE: Exceptions (bullets)**",
-      "steps_md": "**PASTE: Steps (numbered)**"
+      "name": "Private Scholarships",
+      "description_md": "The **Private Scholarships** program allows UCF students to report and process scholarships or awards received from **outside organizations** (non-UCF donors, companies, or foundations). Using the **Self Report Private Scholarships tool** on **myUCF**, students can ensure their external funding is properly reflected in their financial aid package and applied toward tuition, housing, or other university costs. This process prevents over-awarding, allows UCF to meet federal and state aid regulations, and ensures timely disbursement of scholarship funds once checks arrive.",
+      "phone": "Phone: 844-376-9160 | Email: finaid@ucf.edu | Fax: 407-823-5241",
+      "location": "Office of Student Financial Assistance — 4000 Central Florida Blvd, Millican Hall Room 107 | Mailing: P.O. Box 160113, Orlando, FL 32816-0113",
+      "financial_value_md": "* Students can apply **any external scholarship funds** directly toward their UCF tuition and fees.\n* This process prevents **loss or delay of thousands of dollars** in aid due to reporting errors or over-award corrections.\n* **No service fee** — students retain 100% of their external scholarship funds.\n* Priority reporting allows **aid deferments** for tuition, housing, or textbooks, helping students avoid late fees or temporary out-of-pocket payments.",
+      "exceptions_md": "* **Do not report** scholarships from **UCF colleges, Bright Futures, or the Alumni Association** (these are submitted internally).\n* **Late reporting** may delay posting of aid, preventing deferments for tuition or housing.\n* **Failure to report** can lead to **reduction or cancellation of financial aid** due to exceeding cost-of-attendance limits.\n* Federal and state regulations prohibit aid exceeding **total financial need** or **total cost of attendance**.",
+      "steps_md": "1. **Log in to myUCF** and open the **Self Report Private Scholarships** tool.\n2. **Report all anticipated external scholarships** (include donor name and award amount).\n3. Once you receive an **award letter**, submit it using the same tool.\n4. When the **scholarship check arrives:**\n   * If made payable to **you and UCF**, **sign the back** and deliver it to **Office of Student Financial Assistance, Millican Hall Room 107**.\n   * If mailed directly by the donor, ensure it includes your **full name, UCF ID, and date of birth or SSN**, or attach a **Private Scholarship Payment Submission Form**.\n5. For **timely processing**, submit checks within **5–10 business days** of receipt.\n6. Report scholarships by **priority dates** for each term:\n   * **May 1:** Summer\n   * **July 1:** Fall\n   * **November 1:** Spring\n7. After **5–7 business days**, check **myUCF → View Financial Aid** to confirm the scholarship appears as **estimated aid**.\n8. For any donor-requested documentation (e.g., verification letters), email **sfascholarships@ucf.edu** with the subject line **“Report Private Scholarships – Additional Documents.”**"
+
     },
     {
       "name": "Academic Advising",
