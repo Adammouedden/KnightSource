@@ -21,20 +21,6 @@ export default function RecreationPage() {
             <div className="bg-card border rounded-2xl p-6 md:p-8">
               <AccordionSection subcategories={data.subcategories} />
             </div>
-
-            {process.env.NODE_ENV === 'development' && (
-              <details className="mt-8 p-4 bg-muted rounded-lg text-sm">
-                <summary className="font-semibold cursor-pointer">
-                  Dev: Content File Location
-                </summary>
-                <p className="mt-2 text-muted-foreground">
-                  Edit:{' '}
-                  <code className="bg-background px-2 py-1 rounded">
-                    /content/categories/recreation.json
-                  </code>
-                </p>
-              </details>
-            )}
           </div>
         </section>
       </main>
