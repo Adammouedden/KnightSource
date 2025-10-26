@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 
 def crawl_links(url):
     # Send a GET request to the source URL
-    response = requests.get(source_url)
+    response = requests.get(url)
 
     # Create a BeautifulSoup object to parse the HTML
     soup = BeautifulSoup(response.content, 'html.parser')
@@ -19,7 +19,7 @@ def crawl_links(url):
     for link in links:
         href = link.get('href')
         # Use urljoin to construct an absolute URL if the href is relative
-        full_url = urljoin(source_url, href)
+        full_url = urljoin(url, href)
         website_urls.append(full_url)
 
     # Print the collected URLs

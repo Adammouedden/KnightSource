@@ -4,14 +4,52 @@
   "topCategories": 6,
   "percentageUnused": 32,
   "savingsEstimator": {
-    "baseValue": 1200,
-    "classYearMultipliers": {
-      "freshman": 0.8,
-      "sophomore": 1.0,
-      "junior": 1.2,
-      "senior": 1.4
-    },
-    "housingBonus": 500,
-    "insuranceBonus": 800
+    "categories": [
+      {
+        "id": "legal",
+        "label": "Legal help",
+        "emoji": "⚖️",
+        "type": "fixed",
+        "value": 702
+      },
+      {
+        "id": "healthcare",
+        "label": "Healthcare or wellness",
+        "emoji": "🏥",
+        "type": "range",
+        "min": 300,
+        "max": 700
+      },
+      {
+        "id": "crt",
+        "label": "Travel or conference funding (CRT)",
+        "emoji": "✈️",
+        "type": "byRole",
+        "byRole": { "individual": 1000, "rso": 4500 }
+      },
+      {
+        "id": "academics",
+        "label": "Academic aid (scholarships, tutoring, materials)",
+        "emoji": "📚",
+        "type": "fixed",
+        "value": 1500
+      },
+      {
+        "id": "recreation",
+        "label": "Recreation or fitness (RWC, IM, outdoor)",
+        "emoji": "🏋️",
+        "type": "range",
+        "min": 600,
+        "max": 800
+      },
+      {
+        "id": "discounts",
+        "label": "Student discounts & perks (Ticket Center)",
+        "emoji": "🎟️",
+        "type": "range",
+        "min": 50,
+        "max": 150
+      }
+    ]
   }
 }
