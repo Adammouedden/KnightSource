@@ -12,7 +12,7 @@ class RAG_Agent():
         self.client = genai.Client(vertexai=True,api_key=api_key)
 
     def generate(self, prompt: str):
-
+        print(prompt)
         model = "gemini-2.5-flash"
         contents = [
             types.Content(

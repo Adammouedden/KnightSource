@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 __pycache__/
+=======
+__pycache__/
+>>>>>>> eaddd96af1afae04e67e5e9e88fa9227a61a0512
 .env
 .DS_Store
 .vscode/

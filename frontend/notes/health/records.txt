@@ -1,0 +1,37 @@
+**Subcategory name:**
+Records (Health Information Management and Compliance)
+
+**Subcategory specific description:**
+The Health Information Management (HIM) department at UCF Student Health Services oversees the quality control, storage, and authorized release of student health records. Located on the 2nd floor of the UCF Health Center, this department manages requests for obtaining or sharing medical, dental, and immunization records, as well as consent-related documentation under HIPAA privacy regulations.
+
+**Phone number:**
+407-823-2701 (Option 3) — Medical Records
+407-823-1635 — Dental Records
+Fax: 407-823-5140 (for dental record requests)
+Email: [medrecords@ucf.edu](mailto:medrecords@ucf.edu)
+
+**Financial value students can receive from using this:**
+
+* **Free:** Viewing records online through the Patient Portal or sending records to another facility.
+* **Up to $6 saved** when records are under 5 pages (no charge for short digital copies).
+* **Low-cost duplication:** $1.00 per page (first 25) and $0.50 thereafter for mailed copies — substantially cheaper than most outside medical record services.
+
+**Exceptions that would prevent users from using this benefit:**
+
+* Students under 18 require a parent or guardian’s signature for release or treatment consent.
+* Incomplete or unsubmitted authorization forms (no confirmation email).
+* Lack of initials for sensitive data authorization (HIV, psychiatric, sexual assault, etc.) means those records cannot be released.
+* Consent to Discuss form does **not** allow designees to schedule appointments or obtain copies of records.
+
+**Steps on how to take advantage of this benefit:**
+
+1. **View or download your records:** Log into your **Patient Portal** to access immunization records, lab results, or visit summaries instantly.
+2. **Request or send records:**
+
+   * Fill out the **Authorization to Release Protected Health Information** form (online or PDF).
+   * Ensure you receive a confirmation email; if not, resubmit.
+   * Email completed PDF forms to **[medrecords@ucf.edu](mailto:medrecords@ucf.edu)**.
+3. **Dental records:** Complete the **Dental Records Request Form** and fax it to **407-823-5140**.
+4. **Consent to Discuss:** Submit the form to authorize UCF SHS to discuss your care with a designated person.
+5. **Monitor your request:** Expect processing within **5 business days**.
+6. **If privacy is violated:** Submit a written complaint to the **UCF SHS HIPAA Privacy Officer** or the **U.S. Department of Health and Human Services OCR**.
