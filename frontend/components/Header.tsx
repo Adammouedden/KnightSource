@@ -45,7 +45,7 @@ export function Header() {
       localStorage.setItem('isSignedIn', 'true');
       setShowDialog(false);
     } else {
-      alert('Invalid credentials. Please try again.');
+      //alert('Invalid credentials. Please try again.');
     }
   };
 
