@@ -75,7 +75,7 @@ export default function ProfilePage() {
               <Input
                 id="email"
                 value={profile.email}
-                disabled
+                onChange={(e) => setProfile({ ...profile, email: e.target.value })}
                 type="email"
               />
             </div>

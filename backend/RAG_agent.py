@@ -2,6 +2,8 @@ from google import genai
 from google.genai import types
 import os
 from dotenv import load_dotenv
+import asyncio
+from anyio import to_thread
 
 from computer_use.main import gemini_computer_use
 
@@ -70,7 +72,7 @@ class RAG_Agent:
             thinking_config=types.ThinkingConfig(thinking_budget=-1),
         )
 
-    def generate(self, prompt: str) -> str:
+    async def generate(self, prompt: str) -> str:
         model = "gemini-2.5-flash"
 
         contents = [
@@ -100,7 +102,7 @@ class RAG_Agent:
                         q = args.get("query", prompt)
                         initial_url = args.get("initial_url", "http://www.google.com")
                         # Run your Playwright loop ONLY when requested
-                        gemini_computer_use(query=q, initial_url=initial_url)
+                        await to_thread.run_sync(gemini_computer_use, q, initial_url)
                         # Optionally append a short note to the final text
                         out.append("[Opened browser to investigate and complete the task.]")
                     # If you add more functions later, handle them here.

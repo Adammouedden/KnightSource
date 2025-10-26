@@ -205,28 +205,6 @@ export default function VisualizationsPage() {
             <Bar data={resourceUsageOverlay} options={resourceUsageOptions} />
           </CardContent>
         </Card>
-
-
-        <Card className="md:col-span-2">
-          <CardHeader>
-            <CardTitle>User Type Distribution</CardTitle>
-          </CardHeader>
-          <CardContent className="flex justify-center">
-            <div className="w-1/2">
-              <Doughnut 
-                data={mockData.userDistribution}
-                options={{
-                  responsive: true,
-                  plugins: {
-                    legend: {
-                      position: 'right' as const,
-                    },
-                  },
-                }}
-              />
-            </div>
-          </CardContent>
-        </Card>
       </div>
     </div>
   );

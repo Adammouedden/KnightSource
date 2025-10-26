@@ -8,17 +8,9 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import stats from '@/content/stats.json';
 
 export default function LandingPage() {
-  const [stats, setStats] = useState<any>(null);
-
-  useEffect(() => {
-    fetch('/content/stats.json')
-      .then((res) => res.json())
-      .then((data) => setStats(data));
-  }, []);
-
   return (
     <div className="min-h-screen flex flex-col px-4">
       <Header />
@@ -116,8 +108,9 @@ export default function LandingPage() {
                   value={stats.topCategories}
                 />
                 <StatCard
-                  label="Time to First Win"
-                  value={stats.timeToFirstWin}
+                  label="Percentage of Budget Unused"
+                  value={stats.percentageUnused}
+                  suffix='%'
                 />
               </div>
 
@@ -187,14 +180,25 @@ export default function LandingPage() {
               viewport={{ once: true }}
               className="text-center mb-12"
             >
-              <h2 className="text-4xl font-bold mb-4">Trusted On Campus</h2>
+              <h2 className="text-4xl font-bold mb-4">
+                Intelligent Resource Assistant
+              </h2>
               <p className="text-xl text-muted-foreground mb-8">
-                Built by students, for students
+                Powered by advanced AI with RAG technology
               </p>
-              <div className="flex flex-wrap justify-center gap-8 items-center opacity-60">
-                <div className="px-6 py-3 bg-muted rounded-lg font-semibold">UCF</div>
-                <div className="px-6 py-3 bg-muted rounded-lg font-semibold">Student Resources</div>
-                <div className="px-6 py-3 bg-muted rounded-lg font-semibold">Campus Life</div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto text-left">
+                <div className="p-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-xl border border-amber-200 dark:border-amber-800">
+                  <h3 className="font-semibold mb-2">Smart Analysis</h3>
+                  <p className="text-muted-foreground">Our chatbot analyzes vast amounts of UCF resource documentation in real-time</p>
+                </div>
+                <div className="p-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-xl border border-amber-200 dark:border-amber-800">
+                  <h3 className="font-semibold mb-2">Contextual Understanding</h3>
+                  <p className="text-muted-foreground">Get precise answers about UCF benefits, tailored to your specific needs</p>
+                </div>
+                <div className="p-6 bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-xl border border-amber-200 dark:border-amber-800">
+                  <h3 className="font-semibold mb-2">24/7 Assistance</h3>
+                  <p className="text-muted-foreground">Access instant help anytime with our AI-powered resource guide</p>
+                </div>
               </div>
             </motion.div>
 

@@ -40,7 +40,7 @@ export function Header() {
 
   const handleSignIn = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email === 'test@example.com' && password === 'testpassword') {
+    if (email === 'adam.mouedden@gmail.com' && password === 'testpassword') {
       setIsSignedIn(true);
       localStorage.setItem('isSignedIn', 'true');
       setShowDialog(false);
@@ -60,6 +60,7 @@ export function Header() {
     { name: 'Healthcare', href: '/healthcare' },
     { name: 'Conferences', href: '/conferences' },
     { name: 'Recreation', href: '/recreation' },
+    { name: 'RSO', href: '/rso' }
   ];
 
   return (
@@ -80,15 +81,6 @@ export function Header() {
               Home
             </Link>
 
-            {isSignedIn && (
-              <Link
-                href="/visualizations"
-                className="text-sm font-medium transition-colors hover:text-amber-600"
-              >
-                Visualizations
-              </Link>
-            )}
-
             <DropdownMenu>
               <DropdownMenuTrigger className="text-sm font-medium transition-colors hover:text-amber-600 flex items-center gap-1">
                 Categories
@@ -103,6 +95,15 @@ export function Header() {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
+
+            {isSignedIn && (
+              <Link
+                href="/visualizations"
+                className="text-sm font-medium transition-colors hover:text-amber-600"
+              >
+                Visualizations
+              </Link>
+            )}
           </nav>
         </div>
 

@@ -156,14 +156,14 @@ export function Chatbot() {
     <>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-4 right-6 z-50 w-8 h-8 bg-blue-500 hover:bg-citrine text-onyx rounded-full shadow-lg hover:shadow-citrine flex items-center justify-center transition-all transform hover:scale-110"
+        className="fixed bottom-2 right-6 z-50 w-11 h-11 bg-blue-500 hover:bg-citrine text-onyx rounded-full shadow-lg hover:shadow-citrine flex items-center justify-center transition-all transform hover:scale-110"
         aria-label="Open chat"
       >
-        {isOpen ? <X className="w-5 h-5" /> : <MessageCircle className="w-5 h-5" />}
+        {isOpen ? <X className="w-8 h-8" /> : <MessageCircle className="w-8 h-8" />}
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-14 right-6 z-50" style={{ transform: 'scale(0.80)', transformOrigin: 'bottom right' }}>
+        <div className="fixed bottom-16 right-6 z-50" style={{ transform: 'scale(0.80)', transformOrigin: 'bottom right' }}>
           <div className="w-80 max-w-[calc(100vw-3rem)] max-y-120 bg-black border border-knight-gray rounded-2xl shadow-2xl overflow-hidden animate-slide-up">
             <div className="bg-onyx p-4 border-b border-knight-gray">
               <div className="flex items-center space-x-3">
