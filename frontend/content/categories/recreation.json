@@ -3,8 +3,8 @@
   "description": "Fitness, wellness, and recreational facilities included with your tuition.",
   "subcategories": [
     {
-      "name": "Recreation and Wellness Center",
-      "description_md": "**PASTE: Subcategory specific description**",
+      "name": "Outdoor Adventure Trips",
+      "description_md": "",
       "phone": "PASTE: Phone number",
       "location": " - ",
       "financial_value_md": "**PASTE: Financial value**",
@@ -12,34 +12,13 @@
       "steps_md": "**PASTE: Steps (numbered)**"
     },
     {
-      "name": "Outdoor Adventure Programs",
-      "description_md": "**PASTE: Subcategory specific description**",
-      "phone": "PASTE: Phone number",
-      "location": " - ",
-      "financial_value_md": "**PASTE: Financial value**",
-      "exceptions_md": "**PASTE: Exceptions (bullets)**",
-      "steps_md": "**PASTE: Steps (numbered)**"
-    },
-    {
-      "name": "Intramural Sports",
-      "description_md": "**PASTE: Subcategory specific description**",
-      "phone": "PASTE: Phone number",
-      "location": " - ",
-      "financial_value_md": "**PASTE: Financial value**",
-      "exceptions_md": "**PASTE: Exceptions (bullets)**",
-      "steps_md": "**PASTE: Steps (numbered)**"
+      "name": "Open Knight Climb",
+      "description_md": "Experience UCF’s Odyssey III High Element Course — at night!  Includes high-elements and low-elements courses designed for team-building and leadership development. ",
+      "location": "4000 Central Florida Blvd, Orlando, FL 32816",
+      "steps_md": "1. Go to https://ucfrwc.org/ \n2. Please make sure to select Thursday, October 30th below to find our available times!"
     },
     {
       "name": "Group Fitness Classes",
-      "description_md": "**PASTE: Subcategory specific description**",
-      "phone": "PASTE: Phone number",
-      "location": " - ",
-      "financial_value_md": "**PASTE: Financial value**",
-      "exceptions_md": "**PASTE: Exceptions (bullets)**",
-      "steps_md": "**PASTE: Steps (numbered)**"
-    },
-    {
-      "name": "Pool and Aquatics",
       "description_md": "**PASTE: Subcategory specific description**",
       "phone": "PASTE: Phone number",
       "location": " - ",
